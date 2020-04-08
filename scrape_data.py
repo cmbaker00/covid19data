@@ -14,7 +14,8 @@ class CovidData:
         data_array = self.datastring_to_array(data_text)
         for i in range(len(data_array)):
             for j in range(len(data_array[i])):
-                data_array[i][j] = data_array[i][j].replace(',','')
+                if type(data_array[i][j]) is str:
+                    data_array[i][j] = data_array[i][j].replace(',','')
         self.save_data(data_array)
 
     def download_html(self):
